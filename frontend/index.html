@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHL Assessment Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 SHL Assessment Recommendation System</h1>
+            <p class="subtitle">AI-Powered Assessment Discovery using Advanced RAG</p>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="input-group">
+                    <label for="queryInput">Job Description or Search Query</label>
+                    <textarea 
+                        id="queryInput" 
+                        placeholder="Example: I am hiring for Java developers who can also collaborate effectively with my business teams. Looking for an assessment(s) that can be completed in 40 minutes."
+                        rows="5"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="topK">Number of Recommendations (5-10)</label>
+                    <input type="number" id="topK" value="10" min="5" max="10">
+                </div>
+
+                <div class="button-group">
+                    <button id="searchBtn" class="btn btn-primary">
+                        <span class="btn-text">Get Recommendations</span>
+                        <span class="loader" style="display: none;"></span>
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>Recommended Assessments</h2>
+                    <div class="results-meta" id="resultsMeta"></div>
+                </div>
+
+                <div id="resultsContainer"></div>
+            </section>
+
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using FastAPI, Gemini AI, and Advanced RAG Techniques</p>
+            <p class="api-status">API Status: <span id="apiStatus">Checking...</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
